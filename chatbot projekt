@@ -1,0 +1,5 @@
+chatbot-projekt/
+│
+├── index.html
+├── server.js
+└── package.json
