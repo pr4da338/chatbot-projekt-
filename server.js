@@ -35,12 +35,11 @@ app.post("/chat", async (req, res) => {
     });
 
   } catch (error) {
-    console.error(error);
+    console.error("OpenAI Fehler:", error);
     res.status(500).json({ reply: "Fehler beim Server." });
   }
 });
 
-// Wichtig für Render
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log("Server läuft auf Port " + PORT);
