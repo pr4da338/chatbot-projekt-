@@ -16,9 +16,9 @@ app.post("/chat", async (req, res) => {
   try {
     const userMessage = req.body.message;
 
-    const completion = await client.chat.completions.create({
-      model: "gpt-4o-mini",
-      messages: [
+    const response = await client.responses.create({
+      model: "gpt-4.1-mini",
+      input: [
         {
           role: "system",
           content: "Du bist ein freundlicher Assistent für ein lokales Unternehmen. Antworte kurz und hilfreich."
@@ -31,16 +31,11 @@ app.post("/chat", async (req, res) => {
     });
 
     res.json({
-      reply: completion.choices[0].message.content
+      reply: response.output_text
     });
 
   } catch (error) {
     console.error("OpenAI Fehler:", error);
     res.status(500).json({ reply: "Fehler beim Server." });
   }
-});
-
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log("Server läuft auf Port " + PORT);
 });
