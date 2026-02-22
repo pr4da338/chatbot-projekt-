@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "KI Chatbot",
   "main": "server.js",
-  "scripts": {npm install express cors openai dotenv
+  "scripts": { npm install express cors openai dotenv
     "start": "node server.js"
   },
   "dependencies": {
